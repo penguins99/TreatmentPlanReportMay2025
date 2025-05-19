@@ -26,11 +26,21 @@ namespace TreatmentPlanReport
             {
                 //TODO: Get Patient Info from Context.
                 esapi.Patient patient = app.OpenPatientById("RapidPlan-02");//hard code patient for now.
-                Window window = new Window();
-                PatientView patientView = new PatientView();//using TreatmentPlanReport.Views;
-                patientView.DataContext = new PatientViewModel(patient);//using TreatmentPlanReport.ViewModels;
-                window.Content = patientView;// app.CurrentUser.Name;
-                window.ShowDialog();//pause the app here.
+
+                esapi.Course course = patient.Courses.First(c => c.Id == "Demo");
+                esapi.PlanSetup plan = course.PlanSetups.First(p => p.Id == "Boost Calc");
+
+                //Instead of creating a new Window, use MainView
+                MainView mainView = new MainView();
+                MainViewModel mainViewModel = new MainViewModel(patient, plan);
+                mainView.DataContext = mainViewModel;
+                mainView.ShowDialog();
+
+                //Window window = new Window();
+                //PatientView patientView = new PatientView();//using TreatmentPlanReport.Views;
+                //patientView.DataContext = new PatientViewModel(patient);//using TreatmentPlanReport.ViewModels;
+                //window.Content = patientView;// app.CurrentUser.Name;
+                //window.ShowDialog();//pause the app here.
                 //window.Show();//continue the app (then the app object is disposed).
             }
         }
