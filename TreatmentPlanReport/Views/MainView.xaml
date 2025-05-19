@@ -7,11 +7,21 @@
         mc:Ignorable="d"
         Title="Patient Treatment Report" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <local:PatientView DataContext="{Binding PatientViewModel}"/>
-        <local:PlanView Grid.Column="1" DataContext ="{Binding PlanViewModel}"/>
+        <TabControl>
+            <TabItem Header="plan">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <local:PatientView DataContext="{Binding PatientViewModel}"/>
+                    <local:PlanView Grid.Column="1" DataContext ="{Binding PlanViewModel}"/>
+                    <!--It is important to remember that Binding keywords are followed by Properties-->
+                </Grid>
+            </TabItem>
+            <TabItem Header="Field">
+                <local:FieldView DataContext="{Binding FieldViewModel}"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

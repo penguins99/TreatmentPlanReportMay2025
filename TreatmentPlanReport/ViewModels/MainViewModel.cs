@@ -13,10 +13,12 @@ namespace TreatmentPlanReport.ViewModels
         {
             PatientViewModel = new PatientViewModel(patient);
             PlanViewModel = new PlanViewModel(plan);
+            FieldViewModel = new FieldViewModel(plan);
         }
 
         //The spelling of these properties must match the biding expressions in the MainView.xaml file.
         public PatientViewModel PatientViewModel { get; }
         public PlanViewModel PlanViewModel { get; }
+        public FieldViewModel FieldViewModel { get; }
     }
 }
