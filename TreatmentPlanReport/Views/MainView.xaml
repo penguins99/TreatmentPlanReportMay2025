@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TreatmentPlanReport.Views"
+        xmlns:dvh="clr-namespace:DVHPlot.Views"
         mc:Ignorable="d"
         Title="Patient Treatment Report" Height="450" Width="800">
     <Grid>
@@ -21,6 +22,12 @@
             </TabItem>
             <TabItem Header="Field">
                 <local:FieldView DataContext="{Binding FieldViewModel}"/>
+            </TabItem>
+            <TabItem Header="DVH">
+                <DockPanel>
+                    <dvh:DVHSelectionView DockPanel.Dock="Left" DataContext="{Binding DVHSelectionViewModel}"/>
+                    <dvh:DVHView DockPanel.Dock="Right" DataContext="{Binding DVHViewModel}"/>
+                </DockPanel>
             </TabItem>
         </TabControl>
     </Grid>
