@@ -25,10 +25,19 @@ namespace TreatmentPlanReport
             using (esapi.Application app = esapi.Application.CreateApplication())
             {
                 //TODO: Get Patient Info from Context.
-                esapi.Patient patient = app.OpenPatientById("RapidPlan-02");//hard code patient for now.
+                string _patientId = String.Empty;
+                string _courseId = String.Empty;
+                string _planId = String.Empty;
+                if (e.Args.Length > 0)
+                {
+                    _patientId = e.Args.First().Split(';').First();
+                    _courseId = e.Args.First().Split(';')[1];
+                    _planId = e.Args.First().Split(';').Last();
+                }
 
-                esapi.Course course = patient.Courses.First(c => c.Id == "Demo");
-                esapi.PlanSetup plan = course.PlanSetups.First(p => p.Id == "Boost Calc");
+                esapi.Patient patient = app.OpenPatientById(_patientId);//hard code patient for now.
+                esapi.Course course = patient.Courses.First(c => c.Id == _courseId);
+                esapi.PlanSetup plan = course.PlanSetups.First(p => p.Id == _planId);
 
                 //Instead of creating a new Window, use MainView
                 MainView mainView = new MainView();

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TreatmentPlanReport.Views"
              xmlns:converters="clr-namespace:TreatmentPlanReport.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="LightBlue">
+             d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary>
             <converters:DoubleConverter x:Key="localDoubleConverter"/>

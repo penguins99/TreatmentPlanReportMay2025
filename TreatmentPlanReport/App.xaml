@@ -4,6 +4,87 @@
              xmlns:local="clr-namespace:TreatmentPlanReport"
              Startup="Application_Startup">
     <Application.Resources>
-         
+        <!-- Light Tactical Color Palette -->
+        <Color x:Key="PrimaryColor">#FFFDFDFC</Color>
+        <!-- Clean white-paper background -->
+        <Color x:Key="SecondaryColor">#FFF3F4F7</Color>
+        <!-- Soft neutral panel gray -->
+        <Color x:Key="AccentColor">#FFE53935</Color>
+        <!-- Mission red for alerts or titles -->
+        <Color x:Key="HighlightColor">#FF0288D1</Color>
+        <!-- Tactical tech blue for accent areas -->
+        <Color x:Key="SuccessColor">#FF43A047</Color>
+        <!-- Muted green for pass/success -->
+        <Color x:Key="WarningColor">#FFFFA000</Color>
+        <!-- Amber for warnings or cautions -->
+        <Color x:Key="TextColor">#FF212121</Color>
+        <!-- Rich black for high-contrast print text -->
+        <Color x:Key="BorderColor">#FFBDBDBD</Color>
+        <!-- Light gray for outlines -->
+
+        <!-- Brushes -->
+        <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}"/>
+        <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}"/>
+        <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}"/>
+        <SolidColorBrush x:Key="ButtonBrush" Color="{StaticResource HighlightColor}"/>
+        <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}"/>
+        <SolidColorBrush x:Key="WarningBrush" Color="{StaticResource WarningColor}"/>
+        <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextColor}"/>
+        <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BorderColor}"/>
+
+        <!-- Window Style -->
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="{StaticResource PrimaryBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="WindowStyle" Value="None"/>
+            <Setter Property="AllowsTransparency" Value="True"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="15" Color="#90000000" ShadowDepth="0"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource ButtonBrush}"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ButtonBrush}"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+
+                            BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource AccentBrush}"/>
+                    <Setter Property="Foreground" Value="{StaticResource BackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="LightGray"/>
+                    <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!-- TextBlock Style -->
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Margin" Value="5,0"/>
+        </Style>
     </Application.Resources>
 </Application>

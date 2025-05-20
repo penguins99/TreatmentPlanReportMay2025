@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:TreatmentPlanReport.Views"
         xmlns:dvh="clr-namespace:DVHPlot.Views"
         mc:Ignorable="d"
-        Title="Patient Treatment Report" Height="450" Width="800">
+        Title="Patient Treatment Report" Height="450" Width="800" Background="{StaticResource PrimaryBrush}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel>
-            <Button Margin="5" Background="LightPink" FontWeight="Bold" Content="Print PDF" Command="{Binding PrintCommand}"/>
-            <Button Margin="5" Background="MediumPurple" FontWeight="Bold" Content="Post To ARIA" Command="{Binding ARIAPostCommand}"/>
+            <Button Margin="5" FontWeight="Bold" Content="Print PDF" Command="{Binding PrintCommand}"/>
+            <Button Margin="5" FontWeight="Bold" Content="Post To ARIA" Command="{Binding ARIAPostCommand}"/>
         </StackPanel>
         <TabControl Grid.Row="1">
             <TabItem Header="plan">
