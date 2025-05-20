@@ -67,6 +67,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\DoubleConverter.cs" />
     <Compile Include="Models\FieldModel.cs" />
     <Compile Include="ViewModels\FieldViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

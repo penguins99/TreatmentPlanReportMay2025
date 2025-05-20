@@ -25,9 +25,23 @@ namespace TreatmentPlanReport.ViewModels
             PatientId = patient.Id;
             Name = $"{patient.LastName}, {patient.FirstName}";//string Interpolation!!
             Hospital = patient.Hospital.Id;
-            DateOfBirth = patient.DateOfBirth == null ?//ternary operator
-                "No DOB" ://true part.
-                patient.DateOfBirth.Value.ToShortDateString();//false part.
+            //DateOfBirth = patient.DateOfBirth == null ?//ternary operator
+            //   "No DOB" ://true part.
+            //    patient.DateOfBirth.Value.ToShortDateString();//false part.
+            DateOfBirth = GetDateOfBirth(patient.DateOfBirth);
+        }
+
+        public string GetDateOfBirth(DateTime? dateOfBirth)
+        {
+            return dateOfBirth == null ?
+                "No DOB" : // true part
+                dateOfBirth.Value.ToShortDateString();  // false part
+        }
+
+        //To generate this class in a unit test, create a parameterless constructor
+        public PatientViewModel()
+        {
+            
         }
     }
 }
