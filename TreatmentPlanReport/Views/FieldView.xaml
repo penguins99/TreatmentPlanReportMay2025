@@ -20,7 +20,7 @@
             <ListView ItemsSource="{Binding Fields}" SelectedItem="{Binding SelectedField}"
                       DisplayMemberPath="FieldId" DockPanel.Dock="Left"/>
             <!-- Grid Inside to hold all the table elements-->
-            <Grid DockPanel.Dock="Right" DataContext="{Binding SelectedField}">
+            <Grid DockPanel.Dock="Right" DataContext="{Binding SelectedField}" Name="FieldDetailGrid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>

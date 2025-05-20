@@ -32,7 +32,7 @@ namespace TreatmentPlanReport
 
                 //Instead of creating a new Window, use MainView
                 MainView mainView = new MainView();
-                MainViewModel mainViewModel = new MainViewModel(patient, plan);
+                MainViewModel mainViewModel = new MainViewModel(patient, plan, app.CurrentUser);
                 mainView.DataContext = mainViewModel;
                 mainView.ShowDialog();
 

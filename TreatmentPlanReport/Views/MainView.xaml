@@ -8,7 +8,15 @@
         mc:Ignorable="d"
         Title="Patient Treatment Report" Height="450" Width="800">
     <Grid>
-        <TabControl>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Button Margin="5" Background="LightPink" FontWeight="Bold" Content="Print PDF" Command="{Binding PrintCommand}"/>
+            <Button Margin="5" Background="MediumPurple" FontWeight="Bold" Content="Post To ARIA" Command="{Binding ARIAPostCommand}"/>
+        </StackPanel>
+        <TabControl Grid.Row="1">
             <TabItem Header="plan">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -29,6 +37,7 @@
                     <dvh:DVHView DockPanel.Dock="Right" DataContext="{Binding DVHViewModel}"/>
                 </DockPanel>
             </TabItem>
+
         </TabControl>
     </Grid>
 </Window>
